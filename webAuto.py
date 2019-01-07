@@ -3,6 +3,7 @@ import lackey
 import pyautogui
 from selenium.webdriver.common.keys import Keys
 import logging
+import os
 
 class webAuto:
     def __init__(self):
@@ -35,6 +36,7 @@ class webAuto:
         return info
 
     def sendMsg(self, driver):
+        fileDir = os.path.dirname(os.path.realpath('__file__'))
         logger = logging.getLogger(__name__)
         logger.setLevel(logging.INFO)
         driver.get("https://mail.ru/")
@@ -52,14 +54,18 @@ class webAuto:
         lack = lackey.Screen(0)
         time.sleep(2)
         driver.find_element_by_class_name("b-input").send_keys("   test.task.robot@mail.ru")
-        lack.click(r"\img\file.jpg")
+        filename = os.path.join(fileDir, r'img\file.jpg')
+        #print(filename)
+        lack.click(filename)
         time.sleep(4)
         lack.paste(r'C:\pyrobot\users.csv')
         pyautogui.hotkey('enter')
         driver.find_element_by_link_text("Написать письмо").send_keys(Keys.CONTROL, Keys.ENTER)
         time.sleep(4)
         try:
-            lack.click(r"\img\continue.jpg")
+            filename = os.path.join(fileDir, r'img\continue.jpg')
+            #print(filename)
+            lack.click(r"img\continue.jpg")
         except Exception:
             driver.find_element_by_id("PH_logoutLink").click()
         else:

@@ -1,6 +1,6 @@
 from cx_Freeze import setup, Executable
 import os
-build_exe_options = {"packages": ["numpy", "idna", "logging", "cx_Freeze"]} 
+build_exe_options = {"packages": ["numpy", "lackey", "idna", "logging", "cx_Freeze"]} 
 executables = [Executable('main.py')]
 os.environ['TCL_LIBRARY'] = "C:\\help\\tcl\\tcl86t.dll"
 os.environ['TK_LIBRARY'] = "C:\\help\\tcl\\tk86t.dll"
