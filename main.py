@@ -10,14 +10,16 @@ import csv
 import os
 import datetime
 
-logging.basicConfig(filename='C:/pyrobot/logger.log', level=logging.INFO, format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
 if __name__ == '__main__':
         path = 'C:/pyrobot'
         if not os.path.exists(path):
             os.makedirs(path)
+
+        logging.basicConfig(filename='C:/pyrobot/logger.log', level=logging.INFO,
+                            format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+        logger = logging.getLogger(__name__)
+        logger.setLevel(logging.INFO)
 
         try:
               driver = webdriver.Chrome()

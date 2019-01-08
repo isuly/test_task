@@ -54,8 +54,9 @@ class webAuto:
         lack = lackey.Screen(0)
         time.sleep(2)
         driver.find_element_by_class_name("b-input").send_keys("   test.task.robot@mail.ru")
+        #fileDir = r'C:\Users\Public\test_task'
         filename = os.path.join(fileDir, r'img\file.jpg')
-        #print(filename)
+        print(filename)
         lack.click(filename)
         time.sleep(4)
         lack.paste(r'C:\pyrobot\users.csv')
@@ -64,8 +65,8 @@ class webAuto:
         time.sleep(4)
         try:
             filename = os.path.join(fileDir, r'img\continue.jpg')
-            #print(filename)
-            lack.click(r"img\continue.jpg")
+            print(filename)
+            lack.click(filename)
         except Exception:
             driver.find_element_by_id("PH_logoutLink").click()
         else:
