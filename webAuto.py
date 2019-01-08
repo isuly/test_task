@@ -71,4 +71,3 @@ class webAuto:
             driver.find_element_by_id("PH_logoutLink").click()
         else:
             driver.find_element_by_id("PH_logoutLink").click()
-
